@@ -25,7 +25,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 </p>
 <p>
-In this lab we will create two VMs in the same VNET. One will be a Domain Controller, the other will be a Client machine. We will change the DC to a static IP because its offering Active Directory services to the client machine. Client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the DC as its DNS server. 
+In this lab we will create two VMs in the same VNET. One will be a Domain Controller, the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the DC as its DNS server. 
 </p>
 <br />
 
@@ -33,7 +33,7 @@ In this lab we will create two VMs in the same VNET. One will be a Domain Contro
 <img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping DC-1 from Client-1. At first the ping will not work correctly. We have to enable ICMPv4 on the firewall on DC-1. Now we can ping DC-1 successfully from Client-1
+DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping DC-1 from Client-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on DC-1. Now we can ping DC-1 successfully from Client-1
 </p>
 <br />
 
@@ -42,18 +42,18 @@ DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to
 </p>
 <img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 <p>
-Now we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, setup a new forest as "mydomain.com" afterwards restart then log back into DC-1 as user: "mydomain.com\labuser". If you performed the steps properly you should be able to run AD Users & Computers as shown below.
+Now, we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, setup a new forest as "mydomain.com," and afterwards restart and then log back into Domain Controller -1 as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
 </p>
 <img src="https://i.imgur.com/cGjvRke.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 </p>
-Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. In order to do that right click on the domain area. Select new->Organizational Unit and fill out the field. Then click inside of your OU and right click, select new and select user and fill out the information for your new user. The user should be named Jane Doe, she is going to be an Admin so her username will be Jane_admin. Lastly add Jane to the domain admins security group. 
+Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that, right-click on the domain area. Select New ->Organizational Unit and fill out the field. Then click inside of your OU and right-click, select new and select user, and fill out the information for your new user. The user should be named Kayla Lewis. She is going to be an Admin, so her username will be kayla_admin. Lastly add Kayla to the domain admins security group. 
 </p>
 <img src="https://i.imgur.com/hL7g5Y5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 </p>
 <img src="https://i.imgur.com/kcgvzdE.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
-From now on you can use Jane_admin as the administrator account. Now we will join Client-1 to the domain (mydomain.com) from the azure portal we will change client-1's DNS settings to the DC's Private IP address. After you do that restart Client-1 from within the Azure portal. Our picture below shows verification that client-1 is on the DC-1 DNS. 
+From now on, you can use kayla_admin as the administrator account. Now, we will join Client-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain Controller-1 DNS. 
 </p>
 <img src="https://i.imgur.com/jbrGTXW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
@@ -63,7 +63,7 @@ From now on you can use Jane_admin as the administrator account. Now we will joi
 <p>
 </p>
 <p>
-We have to join Client-1 to the domain in order to do so navigate to your system settings and go to about. Off to the right select rename this pc (advanced). From there select to change the domain. Enter "mydomain.com" after that enter your credentials from mydomain.com\labuser. Your computer will restart and then client-1 will be a part of mydomain.com
+We have to join Client-1 to the domain to do so, navigate to your system settings and go to about. Off to the right, select rename this pc (advanced). From there, select to change the domain. Enter "mydomain.com" After that, enter your credentials from mydomain.com\Teach. Your computer will restart, and then device-1 will be a part of mydomain.com
 </p>
 <br />
 <p>
@@ -71,7 +71,7 @@ We have to join Client-1 to the domain in order to do so navigate to your system
 <img src="https://i.imgur.com/Ze0Em5e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Wonderufl Client-1 is now a part of the domain. Now we will set up remote desktop for non-administrative users on Client-1. We have to log into Client-1 as an admin and open system properties. Click on "Remote Desktop", allow "domain users" access to remote desktop. After completing those steps you should be able to log into Client-1 as a normal user.
+Now, Device-1 is a part of the domain. Set up a remote desktop for non-administrative users on Device-1. We have to log into Device-1 as an admin and open system properties. Click on "Remote Desktop" and allow "domain users" access to the remote desktop. After completing those steps, you should be able to log into Device-1 as a user.
 </p>
 <br />
 
@@ -80,7 +80,7 @@ Wonderufl Client-1 is now a part of the domain. Now we will set up remote deskto
 <img src="https://i.imgur.com/SApOKiE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lastly to verify that noraml users can RDP into Client-1 we will use a script to generate thousands of users into the domain. We will input the script in powershell, after the users are created we will select one and RDP into Client-1.
+Lastly, to verify that regular users can RDP into Device-1 we will use a script to generate thousands of users into the domain. We will input the script in powershell; after the users are created we will select one and RDP into Device-1.
 </p>
 <br />
 <img src="https://i.imgur.com/EzWG8ug.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -91,7 +91,7 @@ Lastly to verify that noraml users can RDP into Client-1 we will use a script to
 </p>
 <img src="https://i.imgur.com/n3gMwQV.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 <p>
-As you can see the Powershell script created a user with the username "bab.hubo" We were able to login to Client-1 with his credentials as a normal user. 
+As you can see, the Powershell script created a user with the username "gar.visen" We were able to login to Deive-1 with his credentials as a regular user. 
 </p>
 ![image](https://github.com/user-attachments/assets/f697ca18-a8b2-4ce0-931c-bca690eb3391)
 
@@ -213,7 +213,7 @@ Open Active Directory Users and Computers > Run > type "dsa.msc"
 
 ![image](https://github.com/user-attachments/assets/9d164568-f4af-41b3-8d4c-3ea31d827e05)
 
-Next, let's change the Domain Users' login controls:
+Next, configure group policy to lock out the account after 3 attempts:
 Run > gpmc.msc
 ![image](https://github.com/user-attachments/assets/4149a951-b40e-4945-8aee-14fb026011fc)
 Account Lockout Duration:
@@ -226,10 +226,36 @@ Reset Account Lockout Counter After:
 Definition: The time in minutes after which the failed logon attempts counter is reset to 0, assuming there are no additional failed log-on attempts.
 Configuration: Double-click on this setting, select Define this policy setting, and then set the time (e.g., 15 minutes).
 ![image](https://github.com/user-attachments/assets/172844fb-7458-4d68-a4ea-72c8b97f1007)
+In device-1 -1, log in as kayla_admin, open Admins Command Prompt, and type gpupdate /force. Then, check it with gpresult /r
+(Run > cmd >CRTL+Shift +Enter)
+![image](https://github.com/user-attachments/assets/35d69305-04c4-4936-a27d-9b9df6775684)
+![image](https://github.com/user-attachments/assets/ba154c0c-e901-45fa-97d1-91c937d2da12)
 
-In Device, log in as a new user:  mydomain.com\gar.visen 
+In Device, log in as a new user:  mydomain.com\gar.visen, typing random passwords
 
 ![image](https://github.com/user-attachments/assets/dc755c9f-79b2-409f-a58d-1e18bf01b75a)
 
+![image](https://github.com/user-attachments/assets/8f20ab9a-7c40-4f2f-bb49-ff9e55c492ab)
+
+In Domain Controller, log in as kayla_admin and unlock gar.visen account
+![image](https://github.com/user-attachments/assets/156a6943-db47-4420-a759-8e771074efdf)
+
+![image](https://github.com/user-attachments/assets/80c0e0cc-469a-4173-8e26-f568df786c92)
+
+![image](https://github.com/user-attachments/assets/630eaa9a-929c-4ec5-93ad-718aa7db81d4)
+
+In Device-1, use mydomain.com\gar.vison and Password1 to login.
+![image](https://github.com/user-attachments/assets/f7d79d0d-7f93-4fe4-ae3c-dc8f2863d72a)
+It works!
+
+Observe logs in n Device-1, Run> eventvwr.msc CTRL+SHIFT+ENTER
+Sign in using kayla_admin credentials
+![image](https://github.com/user-attachments/assets/fc112815-974a-4ca3-b68d-32b061eb9e78)
+![image](https://github.com/user-attachments/assets/d6300ad1-c5aa-4cb1-96b9-e5ccbd164f32)
+
+
 As an admin in Active Directory, you can do a few things quickly: Disable an account, reset a Password, add a user to a group, etc...
 ![image](https://github.com/user-attachments/assets/02ba64ad-34f5-4a66-a936-8a2373940124)
+
+
+I know this was long, but I hope it was helpful. Have a great one!
