@@ -188,5 +188,48 @@ Now join device 1 to domain
 
 ![image](https://github.com/user-attachments/assets/f0f96371-e359-4880-8154-779dcd2c76b6)
 
+Check to see if device-1 is in the domain computers 
+![image](https://github.com/user-attachments/assets/5257c48f-d214-4087-99b7-58b4f5a77645)
+
+
+
+In Domain Controller, drag Device-1 from Computers into _CLIENTS
+![image](https://github.com/user-attachments/assets/433631cf-80b9-45f7-bdb7-e732e22f5566)
+
+![image](https://github.com/user-attachments/assets/565536bf-155c-4fb9-8350-9ed71fbc4c60)
+
+In Device-1, log in using kayla_ admin credentials
 
 ![image](https://github.com/user-attachments/assets/25e05d25-8fc6-4f73-9640-7d300ae35ffa)
+![image](https://github.com/user-attachments/assets/7e538c1e-6b84-4fda-9894-5b2f3fef39ba)
+
+In Domain Controller, Open Windows Powershell ISE, open a new file, paste script, and save as create users 
+![image](https://github.com/user-attachments/assets/809354fd-b363-4ccc-a487-59f6d8cb41e6)
+
+![image](https://github.com/user-attachments/assets/64980667-3f06-4638-9f59-1f10c738a81a)
+
+
+Open Active Directory Users and Computers > Run > type "dsa.msc"
+
+![image](https://github.com/user-attachments/assets/9d164568-f4af-41b3-8d4c-3ea31d827e05)
+
+Next, let's change the Domain Users' login controls:
+Run > gpmc.msc
+![image](https://github.com/user-attachments/assets/4149a951-b40e-4945-8aee-14fb026011fc)
+Account Lockout Duration:
+Definition: The time in minutes an account remains locked before automatically being unlocked.
+Configuration: Double-click on this setting, select Define this policy setting, and then set the duration (e.g., 30 minutes).
+Account Lockout Threshold:
+Definition: The number of failed log-on attempts that will trigger an account lockout.
+Configuration: Double-click on this setting, select Define this policy setting, and then set the threshold (e.g., 3 invalid attempts).
+Reset Account Lockout Counter After:
+Definition: The time in minutes after which the failed logon attempts counter is reset to 0, assuming there are no additional failed log-on attempts.
+Configuration: Double-click on this setting, select Define this policy setting, and then set the time (e.g., 15 minutes).
+![image](https://github.com/user-attachments/assets/172844fb-7458-4d68-a4ea-72c8b97f1007)
+
+In Device, log in as a new user:  mydomain.com\gar.visen 
+
+![image](https://github.com/user-attachments/assets/dc755c9f-79b2-409f-a58d-1e18bf01b75a)
+
+As an admin in Active Directory, you can do a few things quickly: Disable an account, reset a Password, add a user to a group, etc...
+![image](https://github.com/user-attachments/assets/02ba64ad-34f5-4a66-a936-8a2373940124)
