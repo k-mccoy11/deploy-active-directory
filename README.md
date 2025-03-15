@@ -25,7 +25,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 </p>
 <p>
-In this lab we will create two VMs in the same VNET. One will be a Domain Controller, the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the DC as its DNS server. 
+In this lab we will create two VMs in the same VNET. One will be a Domain Controller (DC), and the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the Domain Controller as its DNS server. 
 </p>
 <br />
 
@@ -33,7 +33,7 @@ In this lab we will create two VMs in the same VNET. One will be a Domain Contro
 <img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping DC-1 from Client-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on DC-1. Now we can ping DC-1 successfully from Client-1
+DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping  Domain Controller-1 from Devie-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on Domain Controller-1. Now we can ping Domain Controller-1 successfully from Device-1
 </p>
 <br />
 
@@ -42,23 +42,23 @@ DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to
 </p>
 <img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 <p>
-Now, we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, setup a new forest as "mydomain.com," and afterwards restart and then log back into Domain Controller -1 as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
+Now, we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, set up a new forest as "mydomain.com," and afterwards restart and then log back into Domain Controller -1 as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
 </p>
-<img src="https://i.imgur.com/cGjvRke.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 <br />
 </p>
 Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that, right-click on the domain area. Select New ->Organizational Unit and fill out the field. Then click inside of your OU and right-click, select new and select user, and fill out the information for your new user. The user should be named Kayla Lewis. She is going to be an Admin, so her username will be kayla_admin. Lastly add Kayla to the domain admins security group. 
 </p>
-<img src="https://i.imgur.com/hL7g5Y5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 <br />
 </p>
-<img src="https://i.imgur.com/kcgvzdE.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
-From now on, you can use kayla_admin as the administrator account. Now, we will join Client-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain Controller-1 DNS. 
+
+From now on, you can use kayla_admin as the administrator account. Now, we will join Device-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain Controller-1 DNS. 
 </p>
-<img src="https://i.imgur.com/jbrGTXW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 <br />
 </p>
-<img src="https://i.imgur.com/kvcm2cY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 </p>
 <p>
 </p>
