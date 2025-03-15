@@ -169,7 +169,8 @@ Login using username mydomain.com\Teach
 ![image](https://github.com/user-attachments/assets/ecb2230b-0f50-44ef-b4ae-b4339a03e8e1)
 
 ![image](https://github.com/user-attachments/assets/8e30397c-63a3-487a-9383-f4ddd24f8b6e)
-![image](https://github.com/user-attachments/assets/e664dfa8-3248-4a99-99de-aba18ffd1ea4)
+![image](https://github.com/user-attachments/assets/fccfe012-7f57-4200-b385-65bc5ffdc856)
+
 ![image](https://github.com/user-attachments/assets/65a1f519-0fca-4f57-a618-5fdbe89afa13)
 
 ![image](https://github.com/user-attachments/assets/ca3108e9-1896-4916-8be4-157272a1336e)
@@ -178,9 +179,14 @@ Password: Password1
 
 Now join device 1 to domain
 
+![image](https://github.com/user-attachments/assets/1b215bcc-7d59-4568-bc2a-08b6eb485b22)
 
+![image](https://github.com/user-attachments/assets/6edebd65-a7db-4785-9d93-9b9964acb65d)
+![image](https://github.com/user-attachments/assets/4cd37995-a5ed-4836-844e-10adde707191)
 
+![image](https://github.com/user-attachments/assets/fd185a16-fc50-4c65-b362-67c197272a1e)
 
+![image](https://github.com/user-attachments/assets/f0f96371-e359-4880-8154-779dcd2c76b6)
 
 
 ![image](https://github.com/user-attachments/assets/25e05d25-8fc6-4f73-9640-7d300ae35ffa)
