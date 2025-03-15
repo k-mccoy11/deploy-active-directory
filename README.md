@@ -148,4 +148,39 @@ windows firewall
 
 ![image](https://github.com/user-attachments/assets/db428345-9c91-4db2-a7b0-3a7108e8fe92)
 
+![image](https://github.com/user-attachments/assets/654f93d0-5b46-4ea9-8d3c-f261166809f7)
+
+
+![image](https://github.com/user-attachments/assets/f40b504a-bc86-48c7-985e-f85c4727687b)
+
+![image](https://github.com/user-attachments/assets/7d8212ea-9417-4b90-9a70-9ba1b6e54d84)
+![image](https://github.com/user-attachments/assets/b5f3ee90-47dc-457a-bef2-3905169ff811)
+
+![image](https://github.com/user-attachments/assets/44b602d4-94fc-4c8d-9ea0-64a9a0b6c684)
+
+![image](https://github.com/user-attachments/assets/cbda33fc-e0d9-4561-9a48-0da2965ec2f1)
+ The Domain Controller will automatically restart.
+Login using username mydomain.com\Teach
+![image](https://github.com/user-attachments/assets/c3634d17-c92f-4dc1-aa2b-d5036804bc1c)
+
+![image](https://github.com/user-attachments/assets/4106fb82-c560-4534-ab06-99fc148033c3)
+![image](https://github.com/user-attachments/assets/c7a83f57-a3fc-44f1-bd7f-09eeed11c790)
+
+![image](https://github.com/user-attachments/assets/ecb2230b-0f50-44ef-b4ae-b4339a03e8e1)
+
+![image](https://github.com/user-attachments/assets/8e30397c-63a3-487a-9383-f4ddd24f8b6e)
+![image](https://github.com/user-attachments/assets/e664dfa8-3248-4a99-99de-aba18ffd1ea4)
+![image](https://github.com/user-attachments/assets/65a1f519-0fca-4f57-a618-5fdbe89afa13)
+
+![image](https://github.com/user-attachments/assets/ca3108e9-1896-4916-8be4-157272a1336e)
+![image](https://github.com/user-attachments/assets/97fc17d9-af3f-4159-9e1d-2450cafe66ca)
+Password: Password1
+
+Now join device 1 to domain
+
+
+
+
+
+
 ![image](https://github.com/user-attachments/assets/25e05d25-8fc6-4f73-9640-7d300ae35ffa)
