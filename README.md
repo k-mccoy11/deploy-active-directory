@@ -25,7 +25,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 </p>
 <p>
-In this lab we will create two VMs in the same VNET. One will be a Domain Controller (DC), and the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the Domain Controller as its DNS server. 
+In this lab we will create two VMs in the same VNET. One will be a Domain Controller (Domain-Controller), and the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the Domain Controller as its DNS server. 
 </p>
 <br />
 
@@ -33,7 +33,7 @@ In this lab we will create two VMs in the same VNET. One will be a Domain Contro
 <img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping  Domain Controller-1 from Devie-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on Domain Controller-1. Now we can ping Domain Controller-1 successfully from Device-1
+DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping  Domain Controller-1 from Devie-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on Domain-Controller. Now we can ping Domain Controller-1 successfully from Device-1
 </p>
 <br />
 
@@ -42,7 +42,7 @@ DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to
 </p>
 <img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 <p>
-Now, we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, set up a new forest as "mydomain.com," and afterwards restart and then log back into Domain Controller -1 as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
+Now, we will log back into Domain-Controller to install Active Directory Users & Computers. Promote the VM to Domain-Controller, set up a new forest as "mydomain.com," and afterwards restart and then log back into Domain-Controller as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
 </p>
 
 <br />
@@ -53,7 +53,7 @@ Excellent! We can start creating Organizational Units (OU). Let's first create a
 <br />
 </p>
 
-From now on, you can use kayla_admin as the administrator account. Now, we will join Device-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain Controller-1 DNS. 
+From now on, you can use kayla_admin as the administrator account. Now, we will join Device-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain-Controller DNS. 
 </p>
 
 <br />
@@ -226,7 +226,7 @@ Reset Account Lockout Counter After:
 Definition: The time in minutes after which the failed logon attempts counter is reset to 0, assuming there are no additional failed log-on attempts.
 Configuration: Double-click on this setting, select Define this policy setting, and then set the time (e.g., 15 minutes).
 ![image](https://github.com/user-attachments/assets/172844fb-7458-4d68-a4ea-72c8b97f1007)
-In device-1 -1, log in as kayla_admin, open Admins Command Prompt, and type gpupdate /force. Then, check it with gpresult /r
+In Device-1, log in as kayla_admin, open Admins Command Prompt, and type gpupdate /force. Then, check it with gpresult /r
 (Run > cmd >CRTL+Shift +Enter)
 ![image](https://github.com/user-attachments/assets/35d69305-04c4-4936-a27d-9b9df6775684)
 ![image](https://github.com/user-attachments/assets/ba154c0c-e901-45fa-97d1-91c937d2da12)
@@ -244,7 +244,7 @@ In Domain Controller, log in as kayla_admin and unlock gar.visen account
 
 ![image](https://github.com/user-attachments/assets/630eaa9a-929c-4ec5-93ad-718aa7db81d4)
 
-In Device-1, use mydomain.com\gar.vison and Password1 to login.
+In Device-1, use mydomain.com\gar.visen and Password1 to login.
 ![image](https://github.com/user-attachments/assets/f7d79d0d-7f93-4fe4-ae3c-dc8f2863d72a)
 It works!
 
