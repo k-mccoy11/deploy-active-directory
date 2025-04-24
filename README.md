@@ -25,51 +25,167 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 </p>
 <p>
-In this lab we will create two VMs in the same VNET. One will be a Domain Controller (Domain-Controller), and the other will be a Client machine ( Device-1). We will change the DC to a static IP because its offering Active Directory services to the client machine. The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the Domain Controller as its DNS server. 
+In this lab we will create two VMs in the same VNET. One will be a Domain Controller (DC-1), and the other will be a Client machine ( Device-1).
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/d22FHIm.png" height="60%" width="50%" alt="Disk Sanitization Steps"/>
 </p>
+
+<p> <img src="https://github.com/user-attachments/assets/f697ca18-a8b2-4ce0-931c-bca690eb3391" /> </p>
+
+![image](https://github.com/user-attachments/assets/38182ec6-839a-406d-b672-0dce7910da92)
+
+![image](https://github.com/user-attachments/assets/c4534db4-a951-48f7-b4b4-60e65619f57c)
+
+![image](https://github.com/user-attachments/assets/e7bbe8d6-dfec-4f88-9a62-2851388f2c15)
+
 <p>
-DC-1 has to have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping  Domain Controller-1 from Devie-1. At first, the ping will not work correctly. We have to enable ICMPv4 on the firewall on Domain-Controller. Now we can ping Domain Controller-1 successfully from Device-1
+ We will change the DC to a static IP because its offering Active Directory services to the client machine.  
 </p>
 <br />
 
-<p>
-<img src="https://i.imgur.com/HvZBWzc.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-</p>
-<img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-<p>
-Now, we will log back into Domain-Controller to install Active Directory Users & Computers. Promote the VM to Domain-Controller, set up a new forest as "mydomain.com," and afterwards restart and then log back into Domain-Controller as user "mydomain.com\Teach". If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.
-</p>
+![image](https://github.com/user-attachments/assets/4965abca-a3e1-4293-8cf5-187b0d3941ad)
 
+![image](https://github.com/user-attachments/assets/e4405ccd-0c00-41ba-a858-9db7e4c79b21)
+
+<p>Log into the VM and disable the Windows Firewall (for testing connectivity)</p>
+
+![image](https://github.com/user-attachments/assets/393a1612-9f7a-428a-8923-ef103b07e038)
+
+![image](https://github.com/user-attachments/assets/e1f9a872-a425-4366-80d2-b7530281d32b)
+
+Right-click on the start menu
+
+![image](https://github.com/user-attachments/assets/038794a3-eb9c-485b-8dd9-19e388a0e3eb)
+
+Windows Firewall (wd.msc)
+
+![image](https://github.com/user-attachments/assets/f3ce3d75-ffd5-455f-9b90-311cf1252333)
+
+![image](https://github.com/user-attachments/assets/ddd1c960-49d3-4e37-bb1e-aad7e9371794)
+
+
+![image](https://github.com/user-attachments/assets/8808b9d6-0e82-40be-a88d-57898d59e41d)
+
+
+<p>
+The client machine will be joined to the domain. We will control the DNS settings on the client machine, the client machine will use the Domain Controller as its DNS server.
+</p>
 <br />
-</p>
-Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that, right-click on the domain area. Select New ->Organizational Unit and fill out the field. Then click inside of your OU and right-click, select new and select user, and fill out the information for your new user. The user should be named Kayla Lewis. She is going to be an Admin, so her username will be kayla_admin. Lastly add Kayla to the domain admins security group. 
-</p>
 
+![image](https://github.com/user-attachments/assets/9d63400a-08af-479b-95cc-ffe56ae1b8f8)
+
+![image](https://github.com/user-attachments/assets/2bbf3da6-a8f9-43da-bb0d-eec7c20f06e9)
+
+![image](https://github.com/user-attachments/assets/96935f01-a8ce-475b-822c-9c98bf4359eb)
+
+<p> From the Azure Portal, restart Device-1
+<ul>
+  <li> Log into Device-1 </li>
+  <li>Attempt to ping DC-1’s private IP address</li>
+  <li>Ensure the ping succeeded</li>
+ <li> From Device-1, open PowerShell and run ipconfig /all </li>
+</ul>
+
+The output for the DNS settings should show DC-1’s private IP Address </p>
 <br />
-</p>
 
-From now on, you can use kayla_admin as the administrator account. Now, we will join Device-1 to the domain (mydomain.com) from the Azure portal. We will change Device-1's DNS settings to the Domain Controller's Private IP address. After you do that, restart Device-1 from within the Azure portal. Our picture below shows verification that device-1 is on the Domain-Controller DNS. 
-</p>
+![image](https://github.com/user-attachments/assets/44cdfd9d-0013-4dfb-a659-8feb306c7929)
 
+![image](https://github.com/user-attachments/assets/15ad75ad-2d7c-4601-823c-370bf61d3dc2)
+
+
+![image](https://github.com/user-attachments/assets/23e80abe-9259-4899-9e63-6dc42104fe84)
+
+
+![image](https://github.com/user-attachments/assets/316ca738-6f7c-48f3-84bf-0040c59df1a6)
+
+![image](https://github.com/user-attachments/assets/f993e0b1-2c82-4434-be22-a883dd8bbca1)
+
+<p> Now, we will log back into Domain-Controller to install Active Directory Domain Services.
+</p>
 <br />
+
+![image](https://github.com/user-attachments/assets/50616f4d-95fd-46cf-b707-c3abca51d165)
+
+![image](https://github.com/user-attachments/assets/6b51b5d8-f153-4755-b514-4c6d997a2bab)
+
+![image](https://github.com/user-attachments/assets/ec7ede08-0cf1-4fab-911c-e89fdb5f5d70)
+
+![image](https://github.com/user-attachments/assets/db428345-9c91-4db2-a7b0-3a7108e8fe92)
+
+<p>Promote the VM to Domain-Controller, set up a new forest as "mydomain.com," and afterwards restart and then log back into Domain-Controller as user "mydomain.com\Teach". </p> 
+
+![image](https://github.com/user-attachments/assets/654f93d0-5b46-4ea9-8d3c-f261166809f7)
+
+![image](https://github.com/user-attachments/assets/6b51b5d8-f153-4755-b514-4c6d997a2bab)
+
+![image](https://github.com/user-attachments/assets/ec7ede08-0cf1-4fab-911c-e89fdb5f5d70)
+
+![image](https://github.com/user-attachments/assets/db428345-9c91-4db2-a7b0-3a7108e8fe92)
+
+![image](https://github.com/user-attachments/assets/654f93d0-5b46-4ea9-8d3c-f261166809f7)
+
+
+![image](https://github.com/user-attachments/assets/f40b504a-bc86-48c7-985e-f85c4727687b)
+
+![image](https://github.com/user-attachments/assets/7d8212ea-9417-4b90-9a70-9ba1b6e54d84)
+![image](https://github.com/user-attachments/assets/b5f3ee90-47dc-457a-bef2-3905169ff811)
+
+![image](https://github.com/user-attachments/assets/44b602d4-94fc-4c8d-9ea0-64a9a0b6c684)
+
+![image](https://github.com/user-attachments/assets/cbda33fc-e0d9-4561-9a48-0da2965ec2f1)
+
+<p> The Domain Controller will automatically restart.
+<ul><li>Login using username mydomain.com\Teach
+ If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.</li></ul>
+  
+![image](https://github.com/user-attachments/assets/c3634d17-c92f-4dc1-aa2b-d5036804bc1c)
+<p>
+Great! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that, right-click on the domain area. Select New ->Organizational Unit and fill out the field. Then click inside of your OU and right-click, select new and select user, and fill out the information for your new user. The user should be named Kayla Lewis. She is going to be an Admin, so her username will be kayla_admin. Lastly add Kayla to the domain admins security group. 
 </p>
 
-</p>
+![image](https://github.com/user-attachments/assets/4106fb82-c560-4534-ab06-99fc148033c3)
+
+![image](https://github.com/user-attachments/assets/c7a83f57-a3fc-44f1-bd7f-09eeed11c790)
+
+![image](https://github.com/user-attachments/assets/ecb2230b-0f50-44ef-b4ae-b4339a03e8e1)
+
+![image](https://github.com/user-attachments/assets/8e30397c-63a3-487a-9383-f4ddd24f8b6e)
+
+![image](https://github.com/user-attachments/assets/fccfe012-7f57-4200-b385-65bc5ffdc856)
+
+![image](https://github.com/user-attachments/assets/65a1f519-0fca-4f57-a618-5fdbe89afa13)
 <p>
+From now on, you can use kayla_admin as the administrator account. 
 </p>
+
+![image](https://github.com/user-attachments/assets/ca3108e9-1896-4916-8be4-157272a1336e)
+
+![image](https://github.com/user-attachments/assets/97fc17d9-af3f-4159-9e1d-2450cafe66ca)
+
+Password: Password1
 <p>
-We have to join Client-1 to the domain to do so, navigate to your system settings and go to about. Off to the right, select rename this pc (advanced). From there, select to change the domain. Enter "mydomain.com" After that, enter your credentials from mydomain.com\Teach. Your computer will restart, and then device-1 will be a part of mydomain.com
+We have to join Device-1 to the domain to do so, navigate to your system settings and go to about. Off to the right, select rename this pc (advanced). From there, select to change the domain. Enter "mydomain.com" After that, enter kayla_admin  credentials from mydomain.com\kayla_admin. Your computer will restart, and then Device-1 will be a part of mydomain.com
 </p>
 <br />
-<p>
-  <p>
-<img src="https://i.imgur.com/Ze0Em5e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/user-attachments/assets/1b215bcc-7d59-4568-bc2a-08b6eb485b22)
+
+![image](https://github.com/user-attachments/assets/6edebd65-a7db-4785-9d93-9b9964acb65d)
+
+![image](https://github.com/user-attachments/assets/4cd37995-a5ed-4836-844e-10adde707191)
+
+![image](https://github.com/user-attachments/assets/fd185a16-fc50-4c65-b362-67c197272a1e)
+
+![image](https://github.com/user-attachments/assets/f0f96371-e359-4880-8154-779dcd2c76b6)
+
+Check to see if Device-1 is in the domain computers 
+
+![image](https://github.com/user-attachments/assets/5257c48f-d214-4087-99b7-58b4f5a77645)
+
 <p>
 Now, Device-1 is a part of the domain. Set up a remote desktop for non-administrative users on Device-1. We have to log into Device-1 as an admin and open system properties. Click on "Remote Desktop" and allow "domain users" access to the remote desktop. After completing those steps, you should be able to log into Device-1 as a user.
 </p>
@@ -93,54 +209,8 @@ Lastly, to verify that regular users can RDP into Device-1 we will use a script 
 <p>
 As you can see, the Powershell script created a user with the username "gar.visen" We were able to login to Deive-1 with his credentials as a regular user. 
 </p>
-![image](https://github.com/user-attachments/assets/f697ca18-a8b2-4ce0-931c-bca690eb3391)
-
-![image](https://github.com/user-attachments/assets/38182ec6-839a-406d-b672-0dce7910da92)
-
-![image](https://github.com/user-attachments/assets/c4534db4-a951-48f7-b4b4-60e65619f57c)
-
-![image](https://github.com/user-attachments/assets/e7bbe8d6-dfec-4f88-9a62-2851388f2c15)
-
-![image](https://github.com/user-attachments/assets/4965abca-a3e1-4293-8cf5-187b0d3941ad)
-
-![image](https://github.com/user-attachments/assets/e4405ccd-0c00-41ba-a858-9db7e4c79b21)
-
-![image](https://github.com/user-attachments/assets/393a1612-9f7a-428a-8923-ef103b07e038)
-
-![image](https://github.com/user-attachments/assets/e1f9a872-a425-4366-80d2-b7530281d32b)
-
-Right-click on the start menu
-![image](https://github.com/user-attachments/assets/038794a3-eb9c-485b-8dd9-19e388a0e3eb)
-
-windows firewall
-![image](https://github.com/user-attachments/assets/f3ce3d75-ffd5-455f-9b90-311cf1252333)
-
-![image](https://github.com/user-attachments/assets/ddd1c960-49d3-4e37-bb1e-aad7e9371794)
 
 
-![image](https://github.com/user-attachments/assets/8808b9d6-0e82-40be-a88d-57898d59e41d)
-
-![image](https://github.com/user-attachments/assets/44cdfd9d-0013-4dfb-a659-8feb306c7929)
-
-
-![image](https://github.com/user-attachments/assets/9d63400a-08af-479b-95cc-ffe56ae1b8f8)
-
-![image](https://github.com/user-attachments/assets/2bbf3da6-a8f9-43da-bb0d-eec7c20f06e9)
-
-![image](https://github.com/user-attachments/assets/96935f01-a8ce-475b-822c-9c98bf4359eb)
-
-
-![image](https://github.com/user-attachments/assets/15ad75ad-2d7c-4601-823c-370bf61d3dc2)
-
-
-![image](https://github.com/user-attachments/assets/23e80abe-9259-4899-9e63-6dc42104fe84)
-
-
-![image](https://github.com/user-attachments/assets/316ca738-6f7c-48f3-84bf-0040c59df1a6)
-
-![image](https://github.com/user-attachments/assets/f993e0b1-2c82-4434-be22-a883dd8bbca1)
-
-![image](https://github.com/user-attachments/assets/50616f4d-95fd-46cf-b707-c3abca51d165)
 
 ![image](https://github.com/user-attachments/assets/6b51b5d8-f153-4755-b514-4c6d997a2bab)
 
