@@ -139,7 +139,8 @@ The output for the DNS settings should show DC-1’s private IP Address </p>
 ![image](https://github.com/user-attachments/assets/cbda33fc-e0d9-4561-9a48-0da2965ec2f1)
 
 <p> The Domain Controller will automatically restart.
-<ul><li>Login using username mydomain.com\Teach
+<ul>
+ <li>Login using username mydomain.com\Teach
  If you performed the steps properly, you should be able to run AD Users & Computers, as shown below.</li></ul>
   
 ![image](https://github.com/user-attachments/assets/c3634d17-c92f-4dc1-aa2b-d5036804bc1c)
@@ -168,7 +169,7 @@ From now on, you can use kayla_admin as the administrator account.
 
 Password: Password1
 <p>
-We have to join Device-1 to the domain to do so, navigate to your system settings and go to about. Off to the right, select rename this pc (advanced). From there, select to change the domain. Enter "mydomain.com" After that, enter kayla_admin  credentials from mydomain.com\kayla_admin. Your computer will restart, and then Device-1 will be a part of mydomain.com
+We have to join Device-1 to the domain to do so, navigate to your system settings and go to About. Then, select rename this pc (advanced). From there, select to change the domain. Enter "mydomain.com" After that, enter kayla_admin  credentials from mydomain.com\kayla_admin. Your computer will restart, and then Device-1 will be a part of mydomain.com
 </p>
 <br />
 
@@ -186,122 +187,78 @@ Check to see if Device-1 is in the domain computers
 
 ![image](https://github.com/user-attachments/assets/5257c48f-d214-4087-99b7-58b4f5a77645)
 
-<p>
-Now, Device-1 is a part of the domain. Set up a remote desktop for non-administrative users on Device-1. We have to log into Device-1 as an admin and open system properties. Click on "Remote Desktop" and allow "domain users" access to the remote desktop. After completing those steps, you should be able to log into Device-1 as a user.
-</p>
-<br />
+In Domain Controller, drag Device-1 from Computers into _CLIENTS 
 
-<p>
-  <p>
-<img src="https://i.imgur.com/SApOKiE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lastly, to verify that regular users can RDP into Device-1 we will use a script to generate thousands of users into the domain. We will input the script in powershell; after the users are created we will select one and RDP into Device-1.
-</p>
-<br />
-<img src="https://i.imgur.com/EzWG8ug.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<p>
-<p>
-  <p>
-<img src="https://i.imgur.com/Gkpe68K.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-</p>
-<img src="https://i.imgur.com/n3gMwQV.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-<p>
-As you can see, the Powershell script created a user with the username "gar.visen" We were able to login to Deive-1 with his credentials as a regular user. 
-</p>
-
-
-
-![image](https://github.com/user-attachments/assets/6b51b5d8-f153-4755-b514-4c6d997a2bab)
-
-![image](https://github.com/user-attachments/assets/ec7ede08-0cf1-4fab-911c-e89fdb5f5d70)
-
-![image](https://github.com/user-attachments/assets/db428345-9c91-4db2-a7b0-3a7108e8fe92)
-
-![image](https://github.com/user-attachments/assets/654f93d0-5b46-4ea9-8d3c-f261166809f7)
-
-
-![image](https://github.com/user-attachments/assets/f40b504a-bc86-48c7-985e-f85c4727687b)
-
-![image](https://github.com/user-attachments/assets/7d8212ea-9417-4b90-9a70-9ba1b6e54d84)
-![image](https://github.com/user-attachments/assets/b5f3ee90-47dc-457a-bef2-3905169ff811)
-
-![image](https://github.com/user-attachments/assets/44b602d4-94fc-4c8d-9ea0-64a9a0b6c684)
-
-![image](https://github.com/user-attachments/assets/cbda33fc-e0d9-4561-9a48-0da2965ec2f1)
- The Domain Controller will automatically restart.
-Login using username mydomain.com\Teach
-![image](https://github.com/user-attachments/assets/c3634d17-c92f-4dc1-aa2b-d5036804bc1c)
-
-![image](https://github.com/user-attachments/assets/4106fb82-c560-4534-ab06-99fc148033c3)
-![image](https://github.com/user-attachments/assets/c7a83f57-a3fc-44f1-bd7f-09eeed11c790)
-
-![image](https://github.com/user-attachments/assets/ecb2230b-0f50-44ef-b4ae-b4339a03e8e1)
-
-![image](https://github.com/user-attachments/assets/8e30397c-63a3-487a-9383-f4ddd24f8b6e)
-![image](https://github.com/user-attachments/assets/fccfe012-7f57-4200-b385-65bc5ffdc856)
-
-![image](https://github.com/user-attachments/assets/65a1f519-0fca-4f57-a618-5fdbe89afa13)
-
-![image](https://github.com/user-attachments/assets/ca3108e9-1896-4916-8be4-157272a1336e)
-![image](https://github.com/user-attachments/assets/97fc17d9-af3f-4159-9e1d-2450cafe66ca)
-Password: Password1
-
-Now join device 1 to domain
-
-![image](https://github.com/user-attachments/assets/1b215bcc-7d59-4568-bc2a-08b6eb485b22)
-
-![image](https://github.com/user-attachments/assets/6edebd65-a7db-4785-9d93-9b9964acb65d)
-![image](https://github.com/user-attachments/assets/4cd37995-a5ed-4836-844e-10adde707191)
-
-![image](https://github.com/user-attachments/assets/fd185a16-fc50-4c65-b362-67c197272a1e)
-
-![image](https://github.com/user-attachments/assets/f0f96371-e359-4880-8154-779dcd2c76b6)
-
-Check to see if device-1 is in the domain computers 
-![image](https://github.com/user-attachments/assets/5257c48f-d214-4087-99b7-58b4f5a77645)
-
-
-
-In Domain Controller, drag Device-1 from Computers into _CLIENTS
 ![image](https://github.com/user-attachments/assets/433631cf-80b9-45f7-bdb7-e732e22f5566)
 
 ![image](https://github.com/user-attachments/assets/565536bf-155c-4fb9-8350-9ed71fbc4c60)
 
-In Device-1, log in using kayla_ admin credentials
+
+On Device-1, login using kayla_ admin credentials. Set up a remote desktop for non-administrative users on Device-1. We have to log into Device-1 as an admin and open system properties. Click on "Remote Desktop" and allow "domain users" access to the remote desktop. After completing those steps, you should be able to log into Device-1 as a user.
+</p>
+<br />
 
 ![image](https://github.com/user-attachments/assets/25e05d25-8fc6-4f73-9640-7d300ae35ffa)
-![image](https://github.com/user-attachments/assets/7e538c1e-6b84-4fda-9894-5b2f3fef39ba)
+<p>
+<img src="https://i.imgur.com/SApOKiE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
 
-In Domain Controller, Open Windows Powershell ISE, open a new file, paste script, and save as create users 
+![image](https://github.com/user-attachments/assets/7e538c1e-6b84-4fda-9894-5b2f3fef39ba)
+<p>
+In Domain Controller, Open Windows Powershell ISE, open a new file, paste script, and save as create users.
+</p>
+
 ![image](https://github.com/user-attachments/assets/809354fd-b363-4ccc-a487-59f6d8cb41e6)
 
 ![image](https://github.com/user-attachments/assets/64980667-3f06-4638-9f59-1f10c738a81a)
 
+<p>
+After the users are created we will select one and RDP into Device-1.
+</p>
+<br />
+  <p>
+ In Device-1, use mydomain.com\gar.visen and Password1 to login.
+   
+![image](https://github.com/user-attachments/assets/f7d79d0d-7f93-4fe4-ae3c-dc8f2863d72a)
 
-Open Active Directory Users and Computers > Run > type "dsa.msc"
+
+To view more users, go Active Directory Users and Computers > Run > type "dsa.msc"
+Then Click _EMPLOYEES.
 
 ![image](https://github.com/user-attachments/assets/9d164568-f4af-41b3-8d4c-3ea31d827e05)
 
-Next, configure group policy to lock out the account after 3 attempts:
+Next, in DC, configure group policy to lock out the account after 3 attempts:
 Run > gpmc.msc
 ![image](https://github.com/user-attachments/assets/4149a951-b40e-4945-8aee-14fb026011fc)
-Account Lockout Duration:
-Definition: The time in minutes an account remains locked before automatically being unlocked.
+
+<ul>
+ <li>
+Account Lockout Duration: The time in minutes an account remains locked before automatically being unlocked.
+ </li>
+<li>
 Configuration: Double-click on this setting, select Define this policy setting, and then set the duration (e.g., 30 minutes).
-Account Lockout Threshold:
-Definition: The number of failed log-on attempts that will trigger an account lockout.
+</li>
+<li>
+Account Lockout Threshold: The number of failed log-on attempts that will trigger an account lockout.
 Configuration: Double-click on this setting, select Define this policy setting, and then set the threshold (e.g., 3 invalid attempts).
-Reset Account Lockout Counter After:
-Definition: The time in minutes after which the failed logon attempts counter is reset to 0, assuming there are no additional failed log-on attempts.
+</li>
+<li>
+Reset Account Lockout Counter After: The time in minutes after which the failed logon attempts counter is reset to 0, assuming there are no additional failed log-on attempts.
+</li>
+ <li>
 Configuration: Double-click on this setting, select Define this policy setting, and then set the time (e.g., 15 minutes).
+ </li>
+ 
 ![image](https://github.com/user-attachments/assets/172844fb-7458-4d68-a4ea-72c8b97f1007)
-In Device-1, log in as kayla_admin, open Admins Command Prompt, and type gpupdate /force. Then, check it with gpresult /r
+
+ In Device-1, log in as kayla_admin, open Admins Command Prompt, and type gpupdate /force. Then, check it with gpresult /r
 (Run > cmd >CRTL+Shift +Enter)
+ 
 ![image](https://github.com/user-attachments/assets/35d69305-04c4-4936-a27d-9b9df6775684)
+
 ![image](https://github.com/user-attachments/assets/ba154c0c-e901-45fa-97d1-91c937d2da12)
 
-In Device, log in as a new user:  mydomain.com\gar.visen, typing random passwords
+In Device-1, log in as a new user:  mydomain.com\gar.visen, typing random passwords
 
 ![image](https://github.com/user-attachments/assets/dc755c9f-79b2-409f-a58d-1e18bf01b75a)
 
@@ -320,11 +277,15 @@ It works!
 
 Observe logs in n Device-1, Run> eventvwr.msc CTRL+SHIFT+ENTER
 Sign in using kayla_admin credentials
+
+
 ![image](https://github.com/user-attachments/assets/fc112815-974a-4ca3-b68d-32b061eb9e78)
+
 ![image](https://github.com/user-attachments/assets/d6300ad1-c5aa-4cb1-96b9-e5ccbd164f32)
 
 
 As an admin in Active Directory, you can do a few things quickly: Disable an account, reset a Password, add a user to a group, etc...
+
 ![image](https://github.com/user-attachments/assets/02ba64ad-34f5-4a66-a936-8a2373940124)
 
 
